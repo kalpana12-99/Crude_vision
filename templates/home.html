@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Volve Field — Oil Prediction</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        .login {
+            width: 520px;
+            max-width: 95%;
+            background: rgba(255,255,255,0.03);
+            border-radius: 12px;
+            padding: 22px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+        }
+        form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            align-items: center;
+        }
+        .form-label {
+            font-size: 0.95em;
+            margin-bottom: 6px;
+            display: block;
+            color: #e8f6ff;
+        }
+        .form-control {
+            padding: 10px;
+            font-size: 1em;
+            border-radius: 6px;
+            border: none;
+            background-color: #3b0f5a;
+            color: white;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .full {
+            grid-column: 1 / -1;
+        }
+        .btn-primary {
+            grid-column: 1 / -1;
+            background: linear-gradient(90deg, #00c6ff, #0072ff);
+            color: white;
+            font-weight: bold;
+            font-size: 1em;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4);
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 26px rgba(0, 123, 255, 0.55);
+        }
+        h1 {
+            text-align: center;
+            margin: 0 0 12px 0;
+            color: #00ffcc;
+            text-shadow: 0 0 8px #00ffcc;
+        }
+        .note {
+            text-align: center;
+            margin-top: 12px;
+            color: #bcdfff;
+            font-size: 0.9em;
+        }
+        .result {
+            margin-top: 16px;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 1.05rem;
+            color: #00ff99;
+            background: rgba(0,0,0,0.35);
+        }
+        .screenshot {
+            display:block;
+            margin: 10px auto 16px;
+            max-width: 160px;
+            border-radius: 8px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+        }
+    </style>
+</head>
+<body>
+    <div class="login">
+       <h1>Volve Field — Oil Prediction</h1>
+
+       <!-- optional screenshot you uploaded -->
+       <img class="screenshot" 
+            src="{{ url_for('static', filename='images/oil.jpg') }}" 
+            alt="project screenshot">
+
+       <form action="{{ url_for('predict_datapoint') }}" method="post">
+            <div class="full">
+                <label class="form-label">Date (optional)</label>
+                <input class="form-control" type="date" name="date" />
+            </div>
+
+            <div>
+                <label class="form-label">Down-hole Pressure</label>
+                <input class="form-control" type="number" step="any" name="down_hole_presure" placeholder="e.g. 125.4" required />
+            </div>
+
+            <div>
+                <label class="form-label">Down-hole Temperature</label>
+                <input class="form-control" type="number" step="any" name="down_hole_temperature" placeholder="e.g. 98.7" required />
+            </div>
+
+            <div>
+                <label class="form-label">Production Pipe Pressure</label>
+                <input class="form-control" type="number" step="any" name="production_pipe_pressure" placeholder="e.g. 45.6" required />
+            </div>
+
+            <div>
+                <label class="form-label">Choke Size (%)</label>
+                <input class="form-control" type="number" step="any" name="choke_size_pct" placeholder="e.g. 12.5" required />
+            </div>
+
+            <div>
+                <label class="form-label">Well Head Pressure</label>
+                <input class="form-control" type="number" step="any" name="well_head_presure" placeholder="e.g. 67.8" required />
+            </div>
+
+            <div>
+                <label class="form-label">Well Head Temperature</label>
+                <input class="form-control" type="number" step="any" name="well_head_temperature" placeholder="e.g. 55.3" required />
+            </div>
+
+            <div>
+                <label class="form-label">Choke Size Pressure</label>
+                <input class="form-control" type="number" step="any" name="choke_size_pressure" placeholder="e.g. 33.2" required />
+            </div>
+
+            <div class="full">
+                <input class="btn-primary" type="submit" value="Predict Oil" />
+            </div>
+        </form>
+
+        <div class="result">
+            Prediction: {{ results if results is not none else "— not predicted yet —" }}
+        </div>
+
+        <p class="note">Tip: ensure numeric fields are filled. If your ingestion expects day-first dates, set that option in ingestion.</p>
+    </div>
+</body>
+</html>
