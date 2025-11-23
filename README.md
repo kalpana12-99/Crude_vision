@@ -5,8 +5,8 @@ This project demonstrates how ML can support petroleum engineering operations by
 
 ---
 
-## 🎥 Project Demo Video
-[Click here to watch the demo](demo.mp4)
+## 🎥 Project Demo
+▶️ [Watch Demo Video](https://drive.google.com/your_video_link)
 
 # 🎯 Why This Project Was Created
 
