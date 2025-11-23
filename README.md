@@ -5,6 +5,9 @@ This project demonstrates how ML can support petroleum engineering operations by
 
 ---
 
+## 🎥 Project Demo Video
+[Click here to watch the demo](demo.mp4)
+
 # 🎯 Why This Project Was Created
 
 In the petroleum industry, wells generate huge volumes of sensor data every second — pressures, temperatures, choke settings, and fluid measurements.  
