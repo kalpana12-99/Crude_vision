@@ -112,17 +112,17 @@
             </div>
 
             <div>
-                <label class="form-label">Down-hole Pressure</label>
+                <label class="form-label">Down-hole Pressure (psi)</label>
                 <input class="form-control" type="number" step="any" name="down_hole_presure" placeholder="e.g. 125.4" required />
             </div>
 
             <div>
-                <label class="form-label">Down-hole Temperature</label>
+                <label class="form-label">Down-hole Temperature (°F)</label>
                 <input class="form-control" type="number" step="any" name="down_hole_temperature" placeholder="e.g. 98.7" required />
             </div>
 
             <div>
-                <label class="form-label">Production Pipe Pressure</label>
+                <label class="form-label">Production Pipe Pressure (psi)</label>
                 <input class="form-control" type="number" step="any" name="production_pipe_pressure" placeholder="e.g. 45.6" required />
             </div>
 
@@ -132,17 +132,17 @@
             </div>
 
             <div>
-                <label class="form-label">Well Head Pressure</label>
+                <label class="form-label">Well Head Pressure (psi)</label>
                 <input class="form-control" type="number" step="any" name="well_head_presure" placeholder="e.g. 67.8" required />
             </div>
 
             <div>
-                <label class="form-label">Well Head Temperature</label>
+                <label class="form-label">Well Head Temperature (°F)</label>
                 <input class="form-control" type="number" step="any" name="well_head_temperature" placeholder="e.g. 55.3" required />
             </div>
 
             <div>
-                <label class="form-label">Choke Size Pressure</label>
+                <label class="form-label">Choke Size Pressure (psi)</label>
                 <input class="form-control" type="number" step="any" name="choke_size_pressure" placeholder="e.g. 33.2" required />
             </div>
 
@@ -152,10 +152,10 @@
         </form>
 
         <div class="result">
-            Prediction: {{ results if results is not none else "— not predicted yet —" }}
+            Oil Prediction(in STB/Day): {{ results if results is not none else "— not predicted yet —" }}
         </div>
 
-        <p class="note">Tip: ensure numeric fields are filled. If your ingestion expects day-first dates, set that option in ingestion.</p>
+        <p class="note">Tip: numeric fields are required and use decimals where needed.</p>
     </div>
 </body>
 </html>
