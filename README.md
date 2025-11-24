@@ -230,7 +230,10 @@ Visit:
 
 # 🙌 Acknowledgements
 
-Dataset inspired by the **Volve Field** public dataset.  
+Dataset inspired by the **Volve Field** public dataset. 
+ 
+[Volve Field Data set](https://www.kaggle.com/datasets/thelmann/volve-shelf)
+
 This project was built to demonstrate the integration of petroleum engineering with modern AI/ML techniques.
 
 ---
